@@ -1,0 +1,23 @@
+from Postgre.models import Buyer
+Buyer.objects.create(name = "Nindja", balance = 200.00, password = "DDffGGhh", age = 30)
+Buyer.objects.create(name = "Vasya", balance = 20.50, password = "12345678", age = 8)
+Buyer.objects.create(name = "Ivan", balance = 500.75, password = "HHhhJJjj", age = 45)
+from Postgre.models import Game
+Game.objects.create(title = "Andor", cost = 20.05, size = 15, description = "RPG-Cooperate-Game", age_limited = False)
+Game.objects.create(title = "Archem Terror", cost = 20.15, size = 20, description = "Mystick game", age_limited = True)
+Game.objects.create(title = "Explosiv cats", cost = 10.00, size = 5, description = "Salon Game", age_limited = True)
+Game.objects.create(title = "AD&D", cost = 30.05, size = 15, description = "RPG-Cooperate-Game", age_limited = False) 
+from Postgre.models import Sets
+Sets.objects.create(name = "For hero", games_num = 2, games_list = "AD&D, Andor", is_discont = True)
+Sets.objects.create(name = "For adult", games_num = 2, games_list = "Archem Terror, Explosiv cats", is_discont = False)
+Sets.objects.create(name = "All in one", games_num = 4, games_list = "Archem Terror, Explosiv cats, AD&D, Andor", is_discont = True)
+Game.objects.all().filter(age_limited = True)
+Sets.objects.all().filter(is_discont = False)
+Buyer.objects.all()
+Buyer.objects.filter(id = 3)
+Buyer.objects.filter(age = 8)
+Game.objects.count()
+Sets.objects.filter(is_discont = True).count()
+len(Sets.objects.filter(is_discont = True))
+Buyer.objects.filter(age__gte = 18)
+len(Buyer.objects.filter(age__gte = 18)) 
